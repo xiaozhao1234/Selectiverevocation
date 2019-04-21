@@ -13,7 +13,7 @@ from bn128 import FQ, pairing
 def test_selective():
 	params=setup()
 	(sk,vk,delta,k,alpha)=CAKeygen(params)
-	(S1, S2, proof, z)=request(params,alpha,vk)
+	(S1, S2, proof, z, alpha)=request(params,vk)
 	(sigg,W1,k1)=blind(params,sk,S1,S2,vk,proof,delta,k)
 	C=unblind(params,vk,sigg,W1,k1,z,alpha)
 	(bate, sig, W1, k1)=C
