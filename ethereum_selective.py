@@ -36,8 +36,7 @@ def CAKeygen(params):
     h=o.random()
     g3=h*g1
     delta = yn*g3
-    alpha=o.random()
-    return (sk, vk, delta, k, alpha)
+    return (sk, vk, delta, k)
 
 # ===================================================
 # inversion
@@ -71,20 +70,20 @@ def to_challenge(elements):
 # request
 # ===================================================
 
-def request(params, alpha, vk):
+def request(params, vk):
 	""" build elements for blind sign """
 	(G, o, g1, g2, e) = params
 	(g2, Y1, X2, Y2) = vk
 	# build commitment
 	z = o.random()
-	#alpha = o.random()
+	alpha = o.random()
 	S1 = z*g1 + alpha*Y1
 	S2 = alpha*Y2
 	# proof of correctness
 	proof = prove_commitment(params, vk, S1, S2, z, alpha)
-	return (S1, S2, proof, z)
+	return (S1, S2, proof, z, alpha)
 
-def prove_commitment(params, vk, S1, S2, z, alpha,q=1):
+def prove_commitment(params, vk, S1, S2, z, alpha, q=1):
     """ prove correct commitment """
     (G, o, g1, g2, e) = params
     (g2, Y1, X2, Y2) = vk
