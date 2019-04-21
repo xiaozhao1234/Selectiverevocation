@@ -1,10 +1,10 @@
 The selective revocation scheme
 
-Implements optimal ate pairings over the bn\_128 curve.
+Our scheme is based on the open-source project https://github.com/asonnino/coconut
 
-Our scheme is based on https://github.com/asonnino/coconut
+Implements optimal ate pairings over the bn\_128 curve with ubuntu
 
-Built on top of petlib and bplib
+Built on top of https://github.com/gdanezis/petlib and https://github.com/gdanezis/bplib
 
 Install
 
