@@ -240,6 +240,8 @@ def prove_show_credential(params, vk, c, d, r, E, F, delta, bate, W1, k1):
     a = rw*Y2
     b = W1+rw*g1
     kappa = (rw*k1)%o
+    bm=e(b,Y2)
+    bl=e(delta,g2)
 	#qq compute value
 	#qq=e(g1,a)*e(g1,kappa*g2)*e(b,(inv(k1,o))*g2)
     # proof the knowledge bate,r,rw,kappa,k1
